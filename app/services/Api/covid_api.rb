@@ -8,7 +8,12 @@ module Api
 
     def call
       response = HTTParty.get(API_URL)
-      JSON.parse(response.body)
+      covid_cases_for_all_countries = JSON.parse(response.body)['Countries']
+      entries = []
+      covid_cases_for_all_countries.each do |entry|
+        entries << [entry['Country'], entry['TotalConfirmed']]
+      end
+      entries
     end
   end
 end

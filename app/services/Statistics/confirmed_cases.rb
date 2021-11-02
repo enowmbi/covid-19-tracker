@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-
-module Api
+module Statistics
   # return summary of confirmed covid cases
-  class CovidApi
+  class ConfirmedCases
     def call
       cached_value = Rails.cache.read(cache_key)
       return cached_value if cached_value.present?

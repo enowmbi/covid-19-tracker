@@ -8,9 +8,14 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
   </head>
 
   <body>
+    <%# <script> %>
+    <%# Chartkick.configure({language: "de", mapsApiKey: "..."}) %>
+  <%# </script> %>
+
     <%= yield %>
   </body>
 </html>

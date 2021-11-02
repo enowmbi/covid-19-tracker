@@ -22,6 +22,7 @@ gem 'redis', '~> 4.5'
 
 # Add beautiful charts
 gem 'chartkick'
+gem 'httparty'
 
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

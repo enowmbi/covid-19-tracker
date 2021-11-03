@@ -2,15 +2,15 @@
 
 module Statistics
   # return summary of confirmed covid cases
-  class ConfirmedCases
+  class TotalConfirmedCases
     def call
       cached_value = Rails.cache.read(cache_key)
       return cached_value if cached_value.present?
 
       response = HTTParty.get(API_URL)
-      confirmed_cases = JSON.parse(response.body)['Countries']
+      total_confirmed_cases = JSON.parse(response.body)['Countries']
       entries = []
-      confirmed_cases.each do |entry|
+      total_confirmed_cases.each do |entry|
         entries << [entry['Country'], entry['TotalConfirmed']]
       end
 
@@ -22,7 +22,7 @@ module Statistics
     private
 
     def cache_key
-      "confirmed_cases_#{Date.current.strftime('%Y_%m_%d')}"
+      "total_confirmed_cases_#{Date.current.strftime('%Y_%m_%d')}"
     end
 
     def expiry_time_in_seconds

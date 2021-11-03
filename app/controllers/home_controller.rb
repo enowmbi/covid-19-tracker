@@ -3,6 +3,6 @@
 # Display statistics for covid-19 cases
 class HomeController < ApplicationController
   def index
-    @confirmed_covid_cases = Statistics::ConfirmedCases.new.call
+    @total_confirmed_cases = Statistics::TotalConfirmedCases.new.call
   end
 end

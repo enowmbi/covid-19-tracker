@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
+# Display statistics for covid-19 cases
 class HomeController < ApplicationController
   def index
-    @summary_of_covid_cases = Api::CovidApi.new.call()
+    @total_confirmed_cases = Statistics::TotalConfirmedCases.new.call
   end
 end

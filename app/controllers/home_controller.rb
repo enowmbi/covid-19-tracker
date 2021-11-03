@@ -4,5 +4,6 @@
 class HomeController < ApplicationController
   def index
     @total_confirmed_cases = Statistics::TotalConfirmedCases.new.call
+    @new_confirmed_cases = Statistics::NewConfirmedCases.new.call
   end
 end
